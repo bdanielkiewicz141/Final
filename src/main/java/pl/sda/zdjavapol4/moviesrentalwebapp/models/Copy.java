@@ -1,4 +1,4 @@
-package pl.sda.zdjavapol4.moviesrentalwebapp;
+package pl.sda.zdjavapol4.moviesrentalwebapp.models;
 
 public class Copy {
     private int copyID;
