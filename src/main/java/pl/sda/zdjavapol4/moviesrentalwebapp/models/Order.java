@@ -20,14 +20,14 @@ public class Order {
 
     @Id
     @GeneratedValue
-    private Long copyID;
+     Long copyID;
 
 
-    private int movieID;
+     int movieID;
 
-    private String courier;
-    private String orderStatus;
-    private int clientID;
+     String courier;
+     String orderStatus;
+     int clientID;
 
 //    dodać daty, i
 }
