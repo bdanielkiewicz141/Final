@@ -10,5 +10,6 @@ public class Review {
      int reviewID;
      int rate;
      int clientID;
+     //komentarz do usuniecia 
 
 }
