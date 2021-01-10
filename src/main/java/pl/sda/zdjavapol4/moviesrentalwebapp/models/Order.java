@@ -29,5 +29,5 @@ public class Order {
      String orderStatus;
      int clientID;
 
-//    dodać daty, i
+//    dodać daty, i to do
 }
