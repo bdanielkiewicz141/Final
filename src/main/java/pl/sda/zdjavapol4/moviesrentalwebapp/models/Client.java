@@ -1,6 +1,6 @@
 package pl.sda.zdjavapol4.moviesrentalwebapp.models;
 
-
+import org.hibernate.annotations.Table;
 
 
 public class Client {
