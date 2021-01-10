@@ -41,7 +41,7 @@ public class Movie {
     @Column(nullable = false)
     LocalDate releaseDate;
 
-    //    @DecimalMin("0.0")
+//        @DecimalMin("0.0")
 //    @DecimalMax("10.0")
     double avgScore;
 
