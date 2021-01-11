@@ -21,11 +21,8 @@ public class Copy {
     @GeneratedValue
     Long copyID;
 
-    @Column(nullable = false)
+    @ManyToOne
     Movie movieID;
-
-    @Column(nullable = false)
-    int copyNumber;
 
     @Enumerated(EnumType.ORDINAL)
     String copyStatus;
@@ -44,14 +41,6 @@ public class Copy {
 
     public void setMovieID(Movie movieID) {
         this.movieID = movieID;
-    }
-
-    public int getCopyNumber() {
-        return copyNumber;
-    }
-
-    public void setCopyNumber(int copyNumber) {
-        this.copyNumber = copyNumber;
     }
 
     public String getCopyStatus() {

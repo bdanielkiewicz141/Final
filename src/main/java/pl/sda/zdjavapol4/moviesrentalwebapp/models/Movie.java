@@ -17,7 +17,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Data
 @Table(name = "MOVIES")
 
 public class Movie {
@@ -54,15 +53,14 @@ public class Movie {
     BigDecimal basePrice; // cena bedzie ustalana na podstawie relase date
 
 
-//    //TODO
     @OneToMany(mappedBy = "movie", orphanRemoval = true, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     List<Copy> copies;
-//
-//
-////TODO
+
     @OneToMany(mappedBy = "movie")
     List<Review> reviews;
 
+    @ManyToOne
+    Order order;
 
     public Long getMovieId() {
         return movieId;

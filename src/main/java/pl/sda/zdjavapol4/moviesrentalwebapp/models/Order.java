@@ -1,13 +1,11 @@
 package pl.sda.zdjavapol4.moviesrentalwebapp.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Data
 @Builder
 @ToString
 @NoArgsConstructor
@@ -20,10 +18,10 @@ public class Order {
     @GeneratedValue
     Long orderId;
 
-    @Column
+    @OneToOne(mappedBy = "order")
     Copy copyID;
 
-    @Column
+    @OneToMany(mappedBy = "order")
     Movie movieID;
 
     @Column
@@ -32,7 +30,7 @@ public class Order {
     @Column
     String orderStatus;
 
-    @Column
+    @OneToOne
     Client clientID;
 
     @Column
@@ -41,5 +39,4 @@ public class Order {
     @Column
     LocalDate Returndate;
 
-//    dodać daty, i itd.
 }
