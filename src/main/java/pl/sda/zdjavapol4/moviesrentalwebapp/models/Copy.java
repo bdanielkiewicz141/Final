@@ -25,7 +25,7 @@ public class Copy {
     Movie movieID;
 
     @Enumerated(EnumType.ORDINAL)
-    String copyStatus;
+    CopyStatus copyStatus;
 
     public long getCopyID() {
         return copyID;
@@ -43,11 +43,11 @@ public class Copy {
         this.movieID = movieID;
     }
 
-    public String getCopyStatus() {
+    public CopyStatus getCopyStatus() {
         return copyStatus;
     }
 
-    public void setCopyStatus(String copyStatus) {
+    public void setCopyStatus(CopyStatus copyStatus) {
         this.copyStatus = copyStatus;
     }
 }
