@@ -5,29 +5,41 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Builder
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "ORDER")
+@Table(name = "ORDERS")
 public class Order {
 
     @Id
     @GeneratedValue
-     Long copyID;
+    Long orderId;
 
+    @Column
+    Copy copyID;
 
-     int movieID;
+    @Column
+    Movie movieID;
 
-     String courier;
-     String orderStatus;
-     int clientID;
+    @Column
+    String courier;
+
+    @Column
+    String orderStatus;
+
+    @Column
+    Client clientID;
+
+    @Column
+    LocalDate RentDate;
+
+    @Column
+    LocalDate Returndate;
 
 //    dodać daty, i itd.
 }

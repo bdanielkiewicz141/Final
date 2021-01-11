@@ -8,8 +8,12 @@ public class Review {
     @Id
     @GeneratedValue
      int reviewID;
+
+
      int rate;
-     int clientID;
+
+
+     Client clientID;
      //komentarz do usuniecia 
 
 }
