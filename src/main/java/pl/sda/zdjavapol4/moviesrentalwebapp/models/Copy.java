@@ -21,7 +21,7 @@ public class Copy {
     @GeneratedValue
     Long copyID;
 
-    @Column(nullable = false)
+    @ManyToOne
     Movie movieID;
 
     @Column(nullable = false)

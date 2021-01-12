@@ -60,7 +60,8 @@ public class Movie {
 
 //    //TODO
 //    @OneToMany(mappedBy = "movie", orphanRemoval = true, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-//    List<Copy> copies;
+    @OneToMany(mappedBy = "movie", orphanRemoval = true, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    List<Copy> copies;
 //
 //
 ////TODO
