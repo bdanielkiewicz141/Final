@@ -22,7 +22,10 @@ public class Review {
 
     BigDecimal rate;
 
-    @OneToOne(mappedBy = "movie")
-    Client clientID;
+//    @OneToOne(mappedBy = "movie")
+    Long clientID;
+
+//    @OneToMany
+//    Movie movieId;
 
 }

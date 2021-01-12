@@ -22,7 +22,7 @@ public class Client {
 
     private String login;
     private String email;
-    private String adress;
+    private String address;
     private String fullName;
     private long cardNumber;
 

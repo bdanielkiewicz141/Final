@@ -18,11 +18,11 @@ public class Order {
     @GeneratedValue
     Long orderId;
 
-    @OneToOne(mappedBy = "order")
+    @OneToOne
     Copy copyID;
 
-    @OneToMany(mappedBy = "order")
-    Movie movieID;
+//    @OneToMany(mappedBy = "order")
+//    Movie movieID;
 
     @Column
     String courier;
@@ -34,9 +34,9 @@ public class Order {
     Client clientID;
 
     @Column
-    LocalDate RentDate;
+    LocalDate rentDate;
 
     @Column
-    LocalDate Returndate;
+    LocalDate returnDate;
 
 }
