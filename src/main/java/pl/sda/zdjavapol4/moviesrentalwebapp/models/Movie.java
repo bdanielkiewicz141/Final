@@ -1,10 +1,7 @@
 package pl.sda.zdjavapol4.moviesrentalwebapp.models;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -13,7 +10,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-
+@Data
 @Builder
 @ToString
 @NoArgsConstructor
