@@ -1,15 +1,28 @@
 package pl.sda.zdjavapol4.moviesrentalwebapp.models;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+import javax.persistence.*;
+import java.math.BigDecimal;
+
+@Builder
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "REVIEWS")
 public class Review {
 
     @Id
     @GeneratedValue
-     int reviewID;
-     int rate;
-     int clientID;
-   
+    Long reviewID;
+
+    BigDecimal rate;
+
+    @OneToOne(mappedBy = "movie")
+    Client clientID;
 
 }

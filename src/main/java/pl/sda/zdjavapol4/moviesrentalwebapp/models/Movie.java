@@ -6,6 +6,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -18,9 +19,7 @@ import java.util.List;
 @Entity
 @Table(name = "MOVIES")
 
-
 public class Movie {
-
 
     @Id
     @GeneratedValue
@@ -38,33 +37,30 @@ public class Movie {
     @Column(nullable = false)
     LocalDate releaseDate;
 
-    //    @DecimalMin("0.0")
+//        @DecimalMin("0.0")
 //    @DecimalMax("10.0")
     double avgScore;
 
     @Type(type = "text")
 //        @Size(min= 100, max= 500)
-    String discreption;
+    String discription;
 
     //to pole ma nie byc zapisywane w bazie danych
     @Transient
     long daysFromRelease;
 
 
-//    BigDecimal basePrice; // cena bedzie ustalana na podstawie relase date
+    BigDecimal basePrice; // cena bedzie ustalana na podstawie relase date
 
-    int copyNumber;
 
-//    //TODO
-//    @OneToMany(mappedBy = "movie", orphanRemoval = true, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @OneToMany(mappedBy = "movie", orphanRemoval = true, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     List<Copy> copies;
-//
-//
-////TODO
-//    @Column(nullable = false)
-//    Review review;
 
+    @OneToMany(mappedBy = "movie")
+    List<Review> reviews;
+
+    @ManyToOne
+    Order order;
 
     public Long getMovieId() {
         return movieId;
@@ -107,19 +103,11 @@ public class Movie {
     }
 
     public String getDiscreption() {
-        return discreption;
+        return discription;
     }
 
     public void setDiscreption(String discreption) {
-        this.discreption = discreption;
-    }
-
-    public int getCopyNumber() {
-        return copyNumber;
-    }
-
-    public void setCopyNumber(int copyNumber) {
-        this.copyNumber = copyNumber;
+        this.discription = discreption;
     }
 
     @PostLoad
@@ -135,3 +123,4 @@ public class Movie {
         this.daysFromRelease = daysFromRelease;
     }
 }
+
