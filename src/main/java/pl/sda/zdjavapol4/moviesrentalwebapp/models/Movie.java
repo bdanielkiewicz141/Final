@@ -53,16 +53,14 @@ public class Movie {
     BigDecimal basePrice; // cena bedzie ustalana na podstawie relase date
 
 
-    @OneToMany(mappedBy = "movie", orphanRemoval = true, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "movie_id")
     List<Copy> copies;
 
-    @OneToMany(mappedBy = "movie")
+    @OneToMany
     List<Review> reviews;
 
-    @ManyToOne
-    Order order;
-
-    public Long getMovieId() {
+     public Long getMovieId() {
         return movieId;
     }
 
@@ -122,5 +120,8 @@ public class Movie {
     public void setDaysFromRelease(long daysFromRelease) {
         this.daysFromRelease = daysFromRelease;
     }
+
+//    ewentualnie dodać equals hash code
+
 }
 
