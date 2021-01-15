@@ -1,4 +1,4 @@
-package pl.sda.zdjavapol4.moviesrentalwebapp.models;
+package pl.sda.zdjavapol4.moviesrentalwebapp.model;
 
 
 import lombok.*;
@@ -25,9 +25,14 @@ public class Movie {
     @GeneratedValue
     Long movieId;
 
+    public Movie(Long movieId) {
+        this.movieId = movieId;
+    }
+
     @Column(nullable = false)
 //    @NotNull(message = "Title must not be null")
     String title;
+
 
 
     @Column(nullable = false)

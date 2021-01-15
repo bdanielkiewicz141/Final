@@ -1,4 +1,4 @@
-package pl.sda.zdjavapol4.moviesrentalwebapp.models;
+package pl.sda.zdjavapol4.moviesrentalwebapp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,28 +19,32 @@ public class Copy {
 
     @Id
     @GeneratedValue
-    Long copyID;
+    Long copyId;
+
+    public Copy(Long copyId) {
+        this.copyId = copyId;
+    }
 
     @ManyToOne
-    Movie movieID;
+    Movie movieId;
 
     @Enumerated(EnumType.ORDINAL)
     CopyStatus copyStatus;
 
-    public long getCopyID() {
-        return copyID;
+    public long getCopyId() {
+        return copyId;
     }
 
-    public void setCopyID(long copyID) {
-        this.copyID = copyID;
+    public void setCopyId(long copyID) {
+        this.copyId = copyId;
     }
 
-    public Movie getMovieID() {
-        return movieID;
+    public Movie getMovieId() {
+        return movieId;
     }
 
-    public void setMovieID(Movie movieID) {
-        this.movieID = movieID;
+    public void setMovieId(Movie movieId) {
+        this.movieId = movieId;
     }
 
     public CopyStatus getCopyStatus() {

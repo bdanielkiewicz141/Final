@@ -1,4 +1,4 @@
-package pl.sda.zdjavapol4.moviesrentalwebapp.models;
+package pl.sda.zdjavapol4.moviesrentalwebapp.model;
 
 import lombok.*;
 
@@ -18,7 +18,7 @@ public class Client {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long clientID;
+    private Long clientId;
 
     private String login;
     private String email;

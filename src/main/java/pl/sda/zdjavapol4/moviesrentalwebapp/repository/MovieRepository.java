@@ -3,7 +3,7 @@ package pl.sda.zdjavapol4.moviesrentalwebapp.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import pl.sda.zdjavapol4.moviesrentalwebapp.models.Movie;
+import pl.sda.zdjavapol4.moviesrentalwebapp.model.Movie;
 
 import java.util.Optional;
 
@@ -26,6 +26,9 @@ public interface MovieRepository extends CrudRepository<Movie, Long> {
 
     @Override
     public long count();
+
+    @Override
+    public String save (Movie movie);
 
 
 }

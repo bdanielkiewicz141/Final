@@ -1,4 +1,4 @@
-package pl.sda.zdjavapol4.moviesrentalwebapp.models;
+package pl.sda.zdjavapol4.moviesrentalwebapp.model;
 
 import lombok.*;
 
@@ -19,10 +19,10 @@ public class Order {
     Long orderId;
 
     @OneToOne
-    Copy copyID;
+    Copy copyId;
 
 //    @OneToMany(mappedBy = "order")
-//    Movie movieID;
+//    Movie movieId;
 
     @Column
     String courier;
@@ -31,7 +31,7 @@ public class Order {
     String orderStatus;
 
     @OneToOne
-    Client clientID;
+    Client clientId;
 
     @Column
     LocalDate rentDate;

@@ -1,4 +1,4 @@
-package pl.sda.zdjavapol4.moviesrentalwebapp.models;
+package pl.sda.zdjavapol4.moviesrentalwebapp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,12 +18,12 @@ public class Review {
 
     @Id
     @GeneratedValue
-    Long reviewID;
+    Long reviewId;
 
     BigDecimal rate;
 
 //    @OneToOne(mappedBy = "movie")
-    Long clientID;
+    Long clientId;
 
 //    @OneToMany
 //    Movie movieId;
