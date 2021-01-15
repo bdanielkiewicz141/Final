@@ -17,7 +17,7 @@ public class MovieRepositoryTest {
     Copy c1 = new Copy(1L);
     Copy c2 = new Copy(2L);
 
-//c1.setCopyId(1, 2);
+//m.setCopyId(1, 2);
 
 
 //when

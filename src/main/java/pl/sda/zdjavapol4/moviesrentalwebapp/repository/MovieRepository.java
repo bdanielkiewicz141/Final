@@ -3,12 +3,17 @@ package pl.sda.zdjavapol4.moviesrentalwebapp.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import pl.sda.zdjavapol4.moviesrentalwebapp.model.Copy;
+import pl.sda.zdjavapol4.moviesrentalwebapp.model.Genre;
 import pl.sda.zdjavapol4.moviesrentalwebapp.model.Movie;
 
+import javax.print.attribute.standard.Copies;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
-@Repository
 
+@Repository
 public interface MovieRepository extends CrudRepository<Movie, Long> {
 
 
@@ -29,6 +34,8 @@ public interface MovieRepository extends CrudRepository<Movie, Long> {
 
     @Override
     public String save (Movie movie);
+
+
 
 
 }
