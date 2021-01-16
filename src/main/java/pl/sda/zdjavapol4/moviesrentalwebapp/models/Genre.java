@@ -1,4 +1,4 @@
-package pl.sda.zdjavapol4.moviesrentalwebapp.model;
+package pl.sda.zdjavapol4.moviesrentalwebapp.models;
 
 public enum Genre {
     DOCUMENTARY,
