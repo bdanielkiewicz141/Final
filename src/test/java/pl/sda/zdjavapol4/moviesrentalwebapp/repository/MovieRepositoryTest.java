@@ -31,15 +31,18 @@ public class MovieRepositoryTest {
         m1.setTitle(title);
         m1.setReleaseDate(LocalDate.of(1999, 2, 11));
 
+        //create related copies
         Copy c1 = new Copy();
         c1.setCopyStatus(CopyStatus.AVAILABLE);
+        c1.setMovie(m1);
         Copy c2 = new Copy();
+        c2.setMovie(m1);
         c2.setCopyStatus(CopyStatus.RENTED);
 
         List<Copy> copies = new ArrayList<>();
         copies.add(c1);
         copies.add(c2);
-
+        //add copies list to movie
         m1.setCopies(copies);
 
         Optional<Movie> foundMovieOptional = movieRepository.findByTitle(title);
@@ -50,16 +53,6 @@ public class MovieRepositoryTest {
         foundMovieOptional = movieRepository.findByTitle(title);
         Assertions.assertThat(foundMovieOptional.isPresent()).isTrue();
         Movie foundMovie = foundMovieOptional.get();
-
-/*        Copy c1 = new Copy();
-        c1.setCopyStatus(CopyStatus.AVAILABLE);
-        c1.setMovie(m1);
-        Copy c2 = new Copy();
-        c2.setMovie(m1);
-        c2.setCopyStatus(CopyStatus.RENTED);
-
-        copyRepository.save(c1);
-        copyRepository.save(c2);*/
 
         List<Copy> foundCopies = copyRepository.findAll();
 
