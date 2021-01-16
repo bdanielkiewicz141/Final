@@ -15,6 +15,7 @@ public class Copy {
     Long id;
 
     @ManyToOne
+    @JoinColumn(name = "movie_id")
     Movie movie;
 
     @Enumerated(EnumType.ORDINAL)
