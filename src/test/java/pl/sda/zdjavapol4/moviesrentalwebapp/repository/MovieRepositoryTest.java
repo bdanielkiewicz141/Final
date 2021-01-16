@@ -4,9 +4,9 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import pl.sda.zdjavapol4.moviesrentalwebapp.models.Copy;
-import pl.sda.zdjavapol4.moviesrentalwebapp.models.CopyStatus;
-import pl.sda.zdjavapol4.moviesrentalwebapp.models.Movie;
+import pl.sda.zdjavapol4.moviesrentalwebapp.model.Copy;
+import pl.sda.zdjavapol4.moviesrentalwebapp.model.CopyStatus;
+import pl.sda.zdjavapol4.moviesrentalwebapp.model.Movie;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
