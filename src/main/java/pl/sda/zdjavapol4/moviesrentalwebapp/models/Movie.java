@@ -1,4 +1,4 @@
-package pl.sda.zdjavapol4.moviesrentalwebapp.model;
+package pl.sda.zdjavapol4.moviesrentalwebapp.models;
 
 
 import lombok.*;
@@ -14,7 +14,9 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Builder
 public class Movie {
 
     @Id
