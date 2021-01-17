@@ -22,9 +22,9 @@ public interface MovieService {
 
     void save (Movie movie);
 
-    List<Movie> findAllByGenre (Genre genre);
-
-    List<Movie> findByReleaseDate (LocalDate releaseDate1, LocalDate releaseDate2);
+//    List<Movie> findAllByGenre (Genre genre);
+//
+//    List<Movie> findByReleaseDate (LocalDate releaseDate1, LocalDate releaseDate2);
 
     Copy getCopy(Movie movie) throws NoMovieInStockException;
 
