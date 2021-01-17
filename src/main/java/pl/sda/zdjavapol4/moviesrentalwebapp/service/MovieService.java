@@ -1,5 +1,6 @@
 package pl.sda.zdjavapol4.moviesrentalwebapp.service;
 
+import org.springframework.context.annotation.Bean;
 import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.MovieAlreadyExistsException;
 import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.NoMovieInStockException;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Copy;
@@ -9,6 +10,7 @@ import pl.sda.zdjavapol4.moviesrentalwebapp.models.Movie;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+
 
 public interface MovieService {
 
