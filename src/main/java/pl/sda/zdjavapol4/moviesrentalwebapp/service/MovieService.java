@@ -1,6 +1,9 @@
 package pl.sda.zdjavapol4.moviesrentalwebapp.service;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.MovieAlreadyExistsException;
 import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.NoMovieInStockException;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Copy;
@@ -12,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 
+@Service
 public interface MovieService {
 
     List<Movie> findAll();
