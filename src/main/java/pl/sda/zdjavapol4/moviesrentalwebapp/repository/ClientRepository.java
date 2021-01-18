@@ -13,5 +13,6 @@ public interface ClientRepository extends CrudRepository<Client, Long> {
     public Optional<Client> findByEmail(String email);
     public Optional<Client> findByFullName(String fullName);
     public Optional<Client> findByLogin(String login);
+    public Optional<Client> findById(Long clientId);
 
 }
