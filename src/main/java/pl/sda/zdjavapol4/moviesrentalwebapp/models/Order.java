@@ -30,7 +30,7 @@ public class Order {
     @Column
     String orderStatus;
 
-    @OneToOne
+    @ManyToOne
     Client clientId;
 
     @Column
