@@ -23,20 +23,29 @@ public class MovieController {
 
     private MovieService movieService;
 
-    @GetMapping("/movie-list")
-    public String getAllMovies() {
+    @GetMapping({"/movie-list"})
+    public List<Movie> getAllMovies() {
         log.info("Return all movie list");
-        return "index";
+
+        return movieService.findAll();
     }
 
-    //    @CrossOrigin(origins = "http://localhost:3000")
-    @PostMapping("/movie-list")
-    public ResponseEntity<?> createMovie(@RequestBody final Movie movie) throws MovieAlreadyExistsException {
-        log.info("New movie has been created");
-        Movie newMovie = movieService.addMovie(movie);
-        return ResponseEntity
-                .created(URI.create(("/" + newMovie.getId())))
-                .body(newMovie);
-    }
+
+
+//    @GetMapping({"/movies"})
+//    public String getMovieIndex(Model model) {
+//        model.addAttribute("movies", service.getAll());
+//        return "movies/index";
+//    }
+
+//    //    @CrossOrigin(origins = "http://localhost:3000")
+//    @PostMapping("/movie-list")
+//    public ResponseEntity<?> createMovie(@RequestBody final Movie movie) throws MovieAlreadyExistsException {
+//        log.info("New movie has been created");
+//        Movie newMovie = movieService.addMovie(movie);
+//        return ResponseEntity
+//                .created(URI.create(("/" + newMovie.getId())))
+//                .body(newMovie);
+//    }
 }
 
