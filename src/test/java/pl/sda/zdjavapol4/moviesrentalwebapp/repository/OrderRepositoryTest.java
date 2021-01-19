@@ -7,6 +7,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Client;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Copy;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Order;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @DataJpaTest
@@ -23,9 +26,12 @@ public class OrderRepositoryTest {
     public void client_makes_order() {
 
         Long clientId = 123L;
+        Long orderId = 789L;
         Long copyId = 456L;
         Long copyId1 = 654L;
-        Long orderId = 789L;
+
+        Order o = new Order();
+        o.setOrderId(orderId);
 
         Client c3 = new Client();
         c3.setClientId(clientId);
@@ -35,41 +41,43 @@ public class OrderRepositoryTest {
         Copy copy1 = new Copy();
         copy1.setId(copyId1);
 
-        Order o = new Order();
-        o.setOrderId(orderId);
+        List<Order> orderList = new ArrayList<>();
+        orderList.add(o);
+        o.setClientId(c3);
+        c3.setOrders(orderList);
 
         Optional<Order> foundOrderOptional = orderRepository.findById(orderId);
-        Optional<Client> foundOrderOptional1 = clientRepository.findById(clientId);
-        Optional<Copy> foundOrderOptional2 = copyRepository.findById(copyId);
-        Optional<Copy> foundOrderOptional3 = copyRepository.findById(copyId1);
+        Optional<Client> foundClientOptional = clientRepository.findById(clientId);
+        Optional<Copy> foundCopyOptional = copyRepository.findById(copyId);
+        Optional<Copy> foundCopyOptional1 = copyRepository.findById(copyId1);
         Assertions.assertThat(foundOrderOptional.isEmpty()).isTrue();
-        Assertions.assertThat(foundOrderOptional1.isEmpty()).isTrue();
-        Assertions.assertThat(foundOrderOptional2.isEmpty()).isTrue();
-        Assertions.assertThat(foundOrderOptional3.isEmpty()).isTrue();
+        Assertions.assertThat(foundClientOptional.isEmpty()).isTrue();
+        Assertions.assertThat(foundCopyOptional.isEmpty()).isTrue();
+        Assertions.assertThat(foundCopyOptional1.isEmpty()).isTrue();
 
-        orderRepository.save(o);
         copyRepository.save(copy);
         copyRepository.save(copy1);
         clientRepository.save(c3);
+        orderRepository.save(o);
 
         foundOrderOptional = orderRepository.findById(orderId);
-        foundOrderOptional1 = clientRepository.findById(clientId);
-        foundOrderOptional2 = copyRepository.findById(copyId);
-        foundOrderOptional3 = copyRepository.findById(copyId1);
+        foundClientOptional = clientRepository.findById(clientId);
+        foundCopyOptional = copyRepository.findById(copyId);
+        foundCopyOptional1 = copyRepository.findById(copyId1);
         Assertions.assertThat(foundOrderOptional.isPresent()).isTrue();
-        Assertions.assertThat(foundOrderOptional1.isPresent()).isTrue();
-        Assertions.assertThat(foundOrderOptional2.isPresent()).isTrue();
-        Assertions.assertThat(foundOrderOptional3.isPresent()).isTrue();
+        Assertions.assertThat(foundClientOptional.isPresent()).isTrue();
+        Assertions.assertThat(foundCopyOptional.isPresent()).isTrue();
+        Assertions.assertThat(foundCopyOptional1.isPresent()).isTrue();
 
         Order foundOrder = foundOrderOptional.get();
-        Client foundOrder1 = foundOrderOptional1.get();
-        Copy foundOrder2 = foundOrderOptional2.get();
-        Copy foundOrder3 = foundOrderOptional3.get();
+        Client foundClient = foundClientOptional.get();
+        Copy foundCopy = foundCopyOptional.get();
+        Copy foundCopy1 = foundCopyOptional1.get();
 
         Assertions.assertThat(foundOrder.getOrderId()).isEqualTo(o.getOrderId());
-        Assertions.assertThat(foundOrder1.getClientId()).isEqualTo(o.getClientId());
-        Assertions.assertThat(foundOrder2.getId()).isEqualTo(o.getCopyId());
-        Assertions.assertThat(foundOrder3.getId()).isEqualTo(o.getCopyId());
+        Assertions.assertThat(foundClient.getClientId()).isEqualTo(o.getClientId());
+        Assertions.assertThat(foundCopy.getId()).isEqualTo(o.getCopyId());
+        Assertions.assertThat(foundCopy1.getId()).isEqualTo(o.getCopyId());
 
 
 
