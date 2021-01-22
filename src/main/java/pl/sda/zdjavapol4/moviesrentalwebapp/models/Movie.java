@@ -13,10 +13,10 @@ import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Movie {
 
     @Id
@@ -34,7 +34,7 @@ public class Movie {
     //@Column(nullable = false)
     LocalDate releaseDate;
 
-//        @DecimalMin("0.0")
+    //        @DecimalMin("0.0")
 //    @DecimalMax("10.0")
     double avgScore;
 
