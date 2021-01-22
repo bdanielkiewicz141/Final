@@ -4,10 +4,12 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
+@Getter
+@Setter
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -18,26 +20,21 @@ public class Order {
     @GeneratedValue
     Long orderId;
 
-    @OneToOne
+    @ManyToOne
+// (mappedBy = "order")
     Copy copyId;
-//    @OneToMany(mappedBy = "order")
+
 //    Movie movieId;
 
-    @Column
     String courier;
 
-    @Column
     String orderStatus;
 
     @ManyToOne
     Client clientId;
 
-    @Column
     LocalDate rentDate;
 
-    @Column
     LocalDate returnDate;
-
-
 
 }
