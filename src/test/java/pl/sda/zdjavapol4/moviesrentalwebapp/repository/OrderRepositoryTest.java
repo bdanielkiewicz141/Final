@@ -43,6 +43,7 @@ public class OrderRepositoryTest {
 
         List<Order> orderList = new ArrayList<>();
         orderList.add(o);
+        o.setClientId(c3);
         c3.setOrders(orderList);
 
         Optional<Order> foundOrderOptional = orderRepository.findById(orderId);

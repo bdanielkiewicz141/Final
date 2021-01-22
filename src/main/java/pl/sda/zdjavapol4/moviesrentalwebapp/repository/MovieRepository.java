@@ -13,6 +13,8 @@ import java.util.Optional;
 public interface MovieRepository extends CrudRepository<Movie, Long> {
 
     public Optional<Movie> findByTitle(String title);
+    public Optional<Movie> findById(Long Id);
+//    public List<Movie> findAll(Movie movie);
 
 
 
