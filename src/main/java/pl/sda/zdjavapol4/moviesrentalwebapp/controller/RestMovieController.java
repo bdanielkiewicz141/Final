@@ -16,7 +16,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-public class MovieController {
+public class RestMovieController {
 
     private MovieService movieService;
     private RepositoryTestMovie repositoryTestMovie;
