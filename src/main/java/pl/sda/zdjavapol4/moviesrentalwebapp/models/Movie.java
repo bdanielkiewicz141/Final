@@ -17,6 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Builder
+
 public class Movie {
 
     @Id
@@ -64,6 +65,8 @@ public class Movie {
     public void calcDaysFromRelease() {
         this.daysFromRelease = ChronoUnit.DAYS.between(releaseDate, LocalDate.now());
     }
+
+
 
 }
 

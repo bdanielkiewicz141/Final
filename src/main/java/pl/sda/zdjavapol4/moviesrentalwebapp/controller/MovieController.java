@@ -10,10 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.MovieAlreadyExistsException;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Movie;
-import pl.sda.zdjavapol4.moviesrentalwebapp.repository.MovieRepository;
+//import pl.sda.zdjavapol4.moviesrentalwebapp.repository.MovieRepository;
 import pl.sda.zdjavapol4.moviesrentalwebapp.service.MovieService;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -23,13 +24,22 @@ public class MovieController {
 
     private MovieService movieService;
 
-    @GetMapping({"/movie-list"})
-    public List<Movie> getAllMovies() {
+//    @GetMapping({"/movie-list"})
+//    public ResponseEntity List<Movie> getAllMovies() {
+//        log.info("Return all movie list");
+//        var a = movieService.findAll();
+//
+//        log.info(a.get(2).getTitle());
+//        return movieService.findAll();
+//    }
+
+    @GetMapping("/movie-list")
+    public ResponseEntity<List<Movie>> getAllMovies(){
         log.info("Return all movie list");
-
-        return movieService.findAll();
+        return ResponseEntity
+                .ok()
+                .body(movieService.findAll());
     }
-
 
 
 //    @GetMapping({"/movies"})
