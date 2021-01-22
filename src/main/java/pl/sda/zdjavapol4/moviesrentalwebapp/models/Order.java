@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "ORDERS")
+//@Table(name = "ORDERS")
 public class Order {
 
     @Id
@@ -20,7 +20,6 @@ public class Order {
 
     @OneToOne
     Copy copyId;
-
 //    @OneToMany(mappedBy = "order")
 //    Movie movieId;
 

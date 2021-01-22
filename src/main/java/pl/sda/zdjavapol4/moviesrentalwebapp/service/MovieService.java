@@ -20,6 +20,8 @@ public interface MovieService {
 
     List<Movie> findAll();
 
+    Optional<Movie> findById(Long Id);
+
     Movie findMovie(String title);
 
     Optional<Movie> findByTitle(String title);
