@@ -15,8 +15,8 @@ import pl.sda.zdjavapol4.moviesrentalwebapp.service.MovieService;
 @RequestMapping("/movies")
 @RequiredArgsConstructor
 public class MovieController2 {
-    public static final String TITLE = "title";
-    public static final String GENRE = "genre";
+//    public static final String TITLE = "title";
+//    public static final String GENRE = "genre";
     private final MovieService movieService;
 
 //    public MovieController2(MovieService movieService){

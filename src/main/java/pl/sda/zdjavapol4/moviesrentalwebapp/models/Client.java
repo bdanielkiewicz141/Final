@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @Getter
 @Setter
-@Table(name = "CLIENT")
+//@Table(name = "CLIENT")
 public class Client {
 
 @Id
@@ -27,6 +27,6 @@ public class Client {
     private long cardNumber;
 
 
-@OneToMany
+@OneToMany(mappedBy = "client", orphanRemoval = true, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 private List<Order> orders;
 }

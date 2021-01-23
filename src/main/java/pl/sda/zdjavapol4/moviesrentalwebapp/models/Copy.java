@@ -21,5 +21,9 @@ public class Copy {
     @Enumerated(EnumType.ORDINAL)
     CopyStatus copyStatus;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    Order order;
+
 }
 

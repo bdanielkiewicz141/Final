@@ -1,43 +1,41 @@
 package pl.sda.zdjavapol4.moviesrentalwebapp.models;
 
 import lombok.*;
+import pl.sda.zdjavapol4.moviesrentalwebapp.repository.OrderRepository;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
+@Getter
+@Setter
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-//@Table(name = "ORDERS")
+@Table(name = "ORDERS")
 public class Order {
 
     @Id
     @GeneratedValue
     Long orderId;
 
-    @OneToOne
-    Copy copyId;
-//    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order")
+    List<Copy> copies;
+
 //    Movie movieId;
 
-    @Column
     String courier;
 
-    @Column
     String orderStatus;
 
     @ManyToOne
-    Client clientId;
+    @JoinColumn(name = "client_id")
+    Client client;
 
-    @Column
     LocalDate rentDate;
 
-    @Column
     LocalDate returnDate;
-
-
 
 }
