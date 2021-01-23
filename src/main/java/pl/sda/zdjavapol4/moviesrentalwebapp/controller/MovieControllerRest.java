@@ -38,7 +38,7 @@ private final MovieService movieService;
         @GetMapping(value = "/singleMovie")
     public Optional<Movie> selectMovie(@RequestParam( required = true) String title){
         log.info("single movie");
-        return movieService.findMovie("Die Hard");
+        return movieService.findByTitle("Die Hard");
 
     }
 

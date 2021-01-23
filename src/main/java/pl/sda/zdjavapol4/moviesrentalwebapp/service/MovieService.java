@@ -33,11 +33,11 @@ public class MovieService {
 
     public Optional<Movie> findMovie(String title) {
 
-        return movieRepository.findByTitle(title);
+        return null;
     }
 
     public Optional<Movie> findByTitle(String title) {
-        return Optional.empty();
+        return movieRepository.findByTitle(title);
     }
 
     public Movie saveMovie(Movie objectToSave) {
