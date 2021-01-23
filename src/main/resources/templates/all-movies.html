@@ -7,14 +7,30 @@
 <body>
 <p th:text="'Hello, ' + ${title} + '!'"/>
 
+<br>
+<p>All movies</p>
+<table>
+    <thead>
+    <tr>
+        <td>Title</td>
+        <td>Genre</td>
+        <td>Date release</td>
+        <td>Description</td>
+    </tr>
+    </thead>
 <tbody>
 
 <tr th:each="movie : ${movies}">
     <td th:text="${movie.title}">Die Hard</td>
     <td th:text="${movie.genre}">Action</td>
+    <td th:text="${movie.releaseDate}">2020-7-4</td>
+    <td th:text="${movie.description}">ABC</td>
 
 </tr>
 </tbody>
+</table>
+<br>
+<a href="#" th:href="@{/}">Home page</a>
 
 </body>
 </html>
