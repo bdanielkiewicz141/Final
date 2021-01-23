@@ -21,33 +21,33 @@ public class Movie {
 
     @Id
     @GeneratedValue
-    Long id;
+   private   Long id;
 
     //@Column(nullable = false)
 //    @NotNull(message = "Title must not be null")
-    String title;
+   private String title;
 
     //@Column(nullable = false)
     @Enumerated(EnumType.ORDINAL)
-    Genre genre;
+   private Genre genre;
 
     //@Column(nullable = false)
     LocalDate releaseDate;
 
     //        @DecimalMin("0.0")
 //    @DecimalMax("10.0")
-    double avgScore;
+  private   double avgScore;
 
     @Type(type = "text")
 //        @Size(min= 100, max= 500)
-    String description;
+   private String description;
 
     //to pole ma nie byc zapisywane w bazie danych
     @Transient
-    long daysFromRelease;
+   private long daysFromRelease;
 
 
-    BigDecimal basePrice; // cena bedzie ustalana na podstawie relase date
+    private BigDecimal basePrice; // cena bedzie ustalana na podstawie relase date
 
 
     @OneToMany(orphanRemoval = true,

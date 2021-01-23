@@ -2,13 +2,12 @@ package pl.sda.zdjavapol4.moviesrentalwebapp.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.MovieAlreadyExistsException;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Movie;
 import pl.sda.zdjavapol4.moviesrentalwebapp.repository.RepositoryTestMovie;
-import pl.sda.zdjavapol4.moviesrentalwebapp.service.MovieService;
+import pl.sda.zdjavapol4.moviesrentalwebapp.service.DefaultMovieService;
 
 import java.net.URI;
 import java.util.List;
@@ -18,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RestMovieController {
 
-    private MovieService movieService;
+    private DefaultMovieService movieService;
     private RepositoryTestMovie repositoryTestMovie;
 
     @GetMapping("/movie-list")

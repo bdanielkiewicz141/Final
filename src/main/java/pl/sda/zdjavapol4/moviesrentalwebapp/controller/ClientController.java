@@ -6,14 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Client;
-import pl.sda.zdjavapol4.moviesrentalwebapp.service.ClientService;
+import pl.sda.zdjavapol4.moviesrentalwebapp.service.DefaultClientService;
 
 @Slf4j
 @Controller
 @RequiredArgsConstructor
 public class ClientController {
 
-    private final ClientService clientService;
+    private final DefaultClientService clientService;
 
     @GetMapping({"/client"})
     public String getClient(Model model) {

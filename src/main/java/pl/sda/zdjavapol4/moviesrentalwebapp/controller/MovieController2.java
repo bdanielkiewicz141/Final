@@ -1,15 +1,9 @@
 package pl.sda.zdjavapol4.moviesrentalwebapp.controller;
 
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import pl.sda.zdjavapol4.moviesrentalwebapp.service.MovieService;
+import pl.sda.zdjavapol4.moviesrentalwebapp.service.DefaultMovieService;
 
 @Slf4j
 @RequestMapping("/movies")
@@ -17,7 +11,7 @@ import pl.sda.zdjavapol4.moviesrentalwebapp.service.MovieService;
 public class MovieController2 {
 //    public static final String TITLE = "title";
 //    public static final String GENRE = "genre";
-    private final MovieService movieService;
+    private final DefaultMovieService movieService;
 
 //    public MovieController2(MovieService movieService){
 //        this.movieService = movieService;
