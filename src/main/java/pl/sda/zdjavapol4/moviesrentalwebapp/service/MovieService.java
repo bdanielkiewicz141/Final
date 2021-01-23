@@ -20,19 +20,24 @@ public class MovieService {
     private final MovieRepository movieRepository;
 
     public List<Movie> findAll() {
-        return null;
+        List<Movie> movieList = (List<Movie>) movieRepository.findAll();
+
+        return movieList;
     }
 
-    public Optional<Movie> findById(Long Id) {
+    public Optional<Movie> findById(Long id) {
+
+
         return Optional.empty();
     }
 
-    public Movie findMovie(String title) {
+    public Optional<Movie> findMovie(String title) {
+
         return null;
     }
 
     public Optional<Movie> findByTitle(String title) {
-        return Optional.empty();
+        return movieRepository.findByTitle(title);
     }
 
     public Movie saveMovie(Movie objectToSave) {

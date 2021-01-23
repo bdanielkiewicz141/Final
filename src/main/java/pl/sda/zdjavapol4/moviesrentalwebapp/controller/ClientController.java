@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Client;
 import pl.sda.zdjavapol4.moviesrentalwebapp.service.ClientService;
 
+
 @Slf4j
 @Controller
 @RequiredArgsConstructor

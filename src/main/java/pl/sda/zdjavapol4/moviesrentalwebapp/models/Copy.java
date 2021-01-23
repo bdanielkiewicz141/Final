@@ -12,7 +12,7 @@ public class Copy {
 
     @Id
     @GeneratedValue
-    Long id;
+    Long copyId;
 
     @ManyToOne
     @JoinColumn(name = "movie_id")
