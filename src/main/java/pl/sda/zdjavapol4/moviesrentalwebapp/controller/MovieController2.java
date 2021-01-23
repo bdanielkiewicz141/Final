@@ -3,6 +3,7 @@ package pl.sda.zdjavapol4.moviesrentalwebapp.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.MovieAlreadyExistsException;
@@ -14,7 +15,7 @@ import java.net.URI;
 @Slf4j
 @RequestMapping("/movies")
 @RequiredArgsConstructor
-@RestController
+@Controller
 public class MovieController2 {
     //    public static final String TITLE = "title";
 //    public static final String GENRE = "genre";

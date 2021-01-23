@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.MovieAlreadyExistsException;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Movie;
 import pl.sda.zdjavapol4.moviesrentalwebapp.repository.RepositoryTestMovie;
-import pl.sda.zdjavapol4.moviesrentalwebapp.service.DefaultMovieService;
+import pl.sda.zdjavapol4.moviesrentalwebapp.service.MovieService;
 
 import java.net.URI;
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RestMovieController {
 
-    private DefaultMovieService movieService;
+    private MovieService movieService;
     private RepositoryTestMovie repositoryTestMovie;
 
     @GetMapping("/movie-list")
