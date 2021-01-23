@@ -1,6 +1,7 @@
 package pl.sda.zdjavapol4.moviesrentalwebapp.models;
 
 import lombok.*;
+import pl.sda.zdjavapol4.moviesrentalwebapp.repository.OrderRepository;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,16 +14,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-//@Table(name = "ORDERS")
+@Table(name = "ORDERS")
 public class Order {
 
     @Id
     @GeneratedValue
     Long orderId;
 
-    @ManyToOne
-// (mappedBy = "order")
-    Copy copyId;
+    @OneToMany(mappedBy = "order")
+    List<Copy> copies;
 
 //    Movie movieId;
 
@@ -31,7 +31,8 @@ public class Order {
     String orderStatus;
 
     @ManyToOne
-    Client clientId;
+    @JoinColumn(name = "client_id")
+    Client client;
 
     LocalDate rentDate;
 
