@@ -2,7 +2,6 @@ package pl.sda.zdjavapol4.moviesrentalwebapp.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.MovieAlreadyExistsException;
@@ -56,7 +55,7 @@ public class RestMovieController {
     public ResponseEntity<?> updateMovie(@PathVariable("id") Long id, @RequestBody final Movie movie) {
         if (movieService.findById(id).isPresent()) {
             movie.setId(id);
-            movieService.save(movie);
+            movieService.saveMovie(movie);
             log.info("movie " + movie + "has been updated");
             return ResponseEntity
                     .noContent()

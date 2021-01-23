@@ -1,44 +1,53 @@
 package pl.sda.zdjavapol4.moviesrentalwebapp.service;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.MovieAlreadyExistsException;
 import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.NoMovieInStockException;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Copy;
-import pl.sda.zdjavapol4.moviesrentalwebapp.models.Genre;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Movie;
+import pl.sda.zdjavapol4.moviesrentalwebapp.repository.MovieRepository;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-
+@Slf4j
 @Service
-public interface MovieService {
+@RequiredArgsConstructor
+public class MovieService {
 
-    List<Movie> findAll();
+    private final MovieRepository movieRepository;
 
-    Optional<Movie> findById(Long Id);
+    public List<Movie> findAll() {
+        return null;
+    }
 
-    Movie findMovie(String title);
+    public Optional<Movie> findById(Long Id) {
+        return Optional.empty();
+    }
 
-    Optional<Movie> findByTitle(String title);
+    public Movie findMovie(String title) {
+        return null;
+    }
 
-    void save (Movie movie);
+    public Optional<Movie> findByTitle(String title) {
+        return Optional.empty();
+    }
 
-//    List<Movie> findAllByGenre (Genre genre);
-//
-//    List<Movie> findByReleaseDate (LocalDate releaseDate1, LocalDate releaseDate2);
+    public Movie saveMovie(Movie objectToSave) {
+        log.info("saving movie");
+        var saved = movieRepository.save(objectToSave);
+        log.info("object before saving: [{}] and after: [{}]", objectToSave, saved);
+        return saved;
 
-    Copy getCopy(Movie movie) throws NoMovieInStockException;
+    }
 
-    Movie addMovie(Movie movie) throws MovieAlreadyExistsException;
+    public Copy getCopy(Movie movie) throws NoMovieInStockException {
+        return null;
+    }
 
-
-
-
-
-
+    public Movie addMovie(Movie movie) throws MovieAlreadyExistsException {
+        return null;
+    }
 }

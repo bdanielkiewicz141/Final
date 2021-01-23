@@ -6,12 +6,15 @@ import pl.sda.zdjavapol4.moviesrentalwebapp.models.Copy;
 import java.util.List;
 
 @Service
-public interface CopyService {
+public class CopyService{
 
-    public void saveCopy (Copy copy);
-    List<Copy> getAll();
-    void delete(Long id);
+    public void saveCopy(Copy copy) {
+    }
 
+     public List<Copy> getAll() {
+                return null;
+    }
 
-
+    public void delete(Long id) {
+    }
 }

@@ -6,18 +6,22 @@ import pl.sda.zdjavapol4.moviesrentalwebapp.models.Client;
 import java.util.List;
 
 @Service
-public interface ClientService {
+public class ClientService {
 
-    void save(Client client);
+    public void save(Client client) {
+    }
 
-    List<Client> getAll();
+    public List<Client> getAll() {
+                return null;
+    }
 
-    void update(Client client);
+    public void update(Client client) {
+    }
 
-    void delete (Long clientId);
+    public void delete(Long clientId) {
+    }
 
-    Client getByLogin (String login);
-
-
-
+    public Client getByLogin(String login) {
+        return null;
+    }
 }
