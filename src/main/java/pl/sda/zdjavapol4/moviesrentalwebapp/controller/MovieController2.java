@@ -3,21 +3,20 @@ package pl.sda.zdjavapol4.moviesrentalwebapp.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.MovieAlreadyExistsException;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Movie;
 import pl.sda.zdjavapol4.moviesrentalwebapp.service.MovieService;
 
 import java.net.URI;
 
 @Slf4j
-@RequestMapping("/movies")
+@RequestMapping("/movie")
 @RequiredArgsConstructor
-@RestController
+@Controller
 public class MovieController2 {
-    //    public static final String TITLE = "title";
-//    public static final String GENRE = "genre";
+
     public static final String TITLE = "title";
     public static final String GENRE = "genre";
     private final MovieService movieService;
@@ -27,8 +26,8 @@ public class MovieController2 {
 //    }
 
     @GetMapping("/all-movies")
-    public String movies(Model model, @RequestParam(value = "title", required = false, defaultValue = "Die Hard") String title,
-                         @RequestParam(value = "genre", required = false, defaultValue = "Horror") String genre) {
+    public String movies(Model model, @RequestParam(value = "title", required = true) String title,
+                         @RequestParam(value = "genre", required = true) String genre) {
         var allMovies = movieService.findAll();
         log.info("my all movies request");
         model.addAttribute(TITLE, title);
@@ -36,7 +35,7 @@ public class MovieController2 {
         return "all-movies";
     }
 
-    @PostMapping("/movie-list")
+    @PostMapping("/create_movie")
     public ResponseEntity<?> createMovie(@RequestBody final Movie objectToSave) {
         log.info("New movie has been created", objectToSave);
 
