@@ -36,7 +36,7 @@ public class MovieController2 {
     }
 
     @PostMapping("/create_movie")
-    public ResponseEntity<?> createMovie(@RequestBody final Movie objectToSave) {
+    public ResponseEntity<Movie> createMovie(@RequestBody final Movie objectToSave) {
         log.info("New movie has been created", objectToSave);
 
         var saved = movieService.saveMovie(objectToSave);
