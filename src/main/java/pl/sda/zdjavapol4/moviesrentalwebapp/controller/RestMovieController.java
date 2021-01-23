@@ -14,13 +14,14 @@ import java.util.List;
 
 @Slf4j
 @RestController
+@RequestMapping("/rest")
 @RequiredArgsConstructor
 public class RestMovieController {
 
     private MovieService movieService;
     private RepositoryTestMovie repositoryTestMovie;
 
-    @GetMapping("/movie-list")
+    @GetMapping("/movie-list2")
         public List<Movie> getAllMovies() {
         log.info("Return all movie list");
         return movieService.findAll();
