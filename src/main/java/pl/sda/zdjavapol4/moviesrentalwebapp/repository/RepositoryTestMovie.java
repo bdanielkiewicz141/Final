@@ -1,5 +1,6 @@
 package pl.sda.zdjavapol4.moviesrentalwebapp.repository;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
@@ -7,15 +8,32 @@ import pl.sda.zdjavapol4.moviesrentalwebapp.models.Genre;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Movie;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import static pl.sda.zdjavapol4.moviesrentalwebapp.models.Genre.ACTION;
+
+@Slf4j
 @Repository
 public class RepositoryTestMovie {
+    public List<Movie> myMovies(){
+        var result = new ArrayList<Movie>();
+        var movie1 = Movie.builder()
+                .id(99L)
+                .title("Die Hard 2")
+                .genre(ACTION)
+                .releaseDate(LocalDate.of(1990, 7, 2))
+                .build();
+        result.add(movie1);
+        return result;
+    }
+
     @Bean
     public ApplicationRunner initializer(MovieRepository repository) {
         return args -> repository.saveAll(Arrays.asList(
-                Movie.builder().title("Iron man").genre(Genre.ACTION).releaseDate(LocalDate.of(2008, 4, 14)).build(),
-                Movie.builder().title("Die Hard").genre(Genre.ACTION).releaseDate(LocalDate.of(1988, 7, 12)).build(),
+                Movie.builder().title("Iron man").genre(ACTION).releaseDate(LocalDate.of(2008, 4, 14)).build(),
+                Movie.builder().title("Die Hard").genre(ACTION).releaseDate(LocalDate.of(1988, 7, 12)).build(),
                 Movie.builder().title("The Silence of the Lambs").genre(Genre.THRILLER).releaseDate(LocalDate.of(1991, 1, 30)).build(),
                 Movie.builder().title("The Sixth Sense").genre(Genre.THRILLER).releaseDate(LocalDate.of(1999, 8, 2)).build(),
                 Movie.builder().title("Sweeney Todd: The Demon Barber of Fleet Street").genre(Genre.MUSICAL).releaseDate(LocalDate.of(2007, 12, 3)).build(),
