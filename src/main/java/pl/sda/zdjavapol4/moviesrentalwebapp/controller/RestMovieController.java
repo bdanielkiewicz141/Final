@@ -55,7 +55,7 @@ public class RestMovieController {
     public ResponseEntity<?> updateMovie(@PathVariable("id") Long id, @RequestBody final Movie movie) {
         if (movieService.findById(id).isPresent()) {
             movie.setId(id);
-            movieService.save(movie);
+            movieService.saveMovie(movie);
             log.info("movie " + movie + "has been updated");
             return ResponseEntity
                     .noContent()

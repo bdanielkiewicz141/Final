@@ -1,21 +1,27 @@
 package pl.sda.zdjavapol4.moviesrentalwebapp.service;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.MovieAlreadyExistsException;
 import pl.sda.zdjavapol4.moviesrentalwebapp.exceptions.NoMovieInStockException;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Copy;
 import pl.sda.zdjavapol4.moviesrentalwebapp.models.Movie;
+import pl.sda.zdjavapol4.moviesrentalwebapp.repository.MovieRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
-        public class DefaultMovieService {
+@RequiredArgsConstructor
+public class MovieService {
+
+    private final MovieRepository movieRepository;
 
     public List<Movie> findAll() {
         return null;
     }
-
 
     public Optional<Movie> findById(Long Id) {
         return Optional.empty();
@@ -29,7 +35,11 @@ import java.util.Optional;
         return Optional.empty();
     }
 
-    public void save(Movie movie) {
+    public Movie saveMovie(Movie objectToSave) {
+        log.info("saving movie");
+        var saved = movieRepository.save(objectToSave);
+        log.info("object before saving: [{}] and after: [{}]", objectToSave, saved);
+        return saved;
 
     }
 
