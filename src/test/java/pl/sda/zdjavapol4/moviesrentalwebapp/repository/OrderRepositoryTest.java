@@ -38,7 +38,7 @@ public class OrderRepositoryTest {
         c3.setClientId(clientId);
 
         Copy copy = new Copy();
-        copy.setId(copyId);
+        copy.setCopyId(copyId);
         o.setCopyId(copy);
 //        Copy copy1 = new Copy();
 //        copy1.setId(copyId1);
@@ -79,7 +79,7 @@ public class OrderRepositoryTest {
 
         Assertions.assertThat(foundOrder.getOrderId()).isEqualTo(o.getOrderId());
         Assertions.assertThat(foundClient.getClientId()).isEqualTo(o.getClientId());
-        Assertions.assertThat(foundCopy.getId()).isEqualTo(o.getCopyId());
+        Assertions.assertThat(foundCopy.getCopyId()).isEqualTo(o.getCopyId());
 //        Assertions.assertThat(foundCopy1.getId()).isEqualTo(o.getCopyId());
 
 
