@@ -10,6 +10,8 @@ import pl.sda.zdjavapol4.moviesrentalwebapp.models.Movie;
 import pl.sda.zdjavapol4.moviesrentalwebapp.service.MovieService;
 
 import java.net.URI;
+import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @RequestMapping("/movie")
@@ -49,6 +51,18 @@ public class MovieController2 {
 //                .body(newMovie);
 //    }
 
+
+    }
+    @GetMapping(value = "/singleMovie")
+    public Optional<Movie> selectMovie(@RequestParam( required = true) String title){
+        log.info("single movie");
+        return movieService.findByTitle("Die Hard");
+
+    }
+    @GetMapping(value = "/movieRest")
+    public List<Movie> myMovies(){
+        log.info("rest all my movies");
+        return movieService.findAll();
 
     }
 }
